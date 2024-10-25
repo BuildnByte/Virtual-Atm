@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styles matching atm.html */
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f0f0f0, #007bff);
+        }
+        .container {
+            margin-top: 5%;
+            max-width: 700px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+            color: #555;
+        }
+        input.form-control, select.form-control {
+            width: 100%;
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .btn-primary, .btn-danger {
+            width: 100%;
+            border-radius: 25px;
+            padding: 10px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Remove Account</h1>
+        <p><strong>Your current balance:</strong> ${{ balance }}</p>
+        <form method="POST">
+            <label for="transfer_account_username" class="form-label">Target Account Username:</label>
+            <input type="text" name="transfer_account_username" id="transfer_account_username" class="form-control" required>
+            
+            <label for="transfer_account_password" class="form-label">Target Account Password:</label>
+            <input type="password" name="transfer_account_password" id="transfer_account_password" class="form-control" required>
+            
+            <label for="transfer_account_gov_id" class="form-label">Target Account Government ID:</label>
+            <input type="text" name="transfer_account_gov_id" id="transfer_account_gov_id" class="form-control" required>
+
+            <button type="submit" class="btn btn-primary">Confirm and Transfer</button>
+            <a href="{{ url_for('atm') }}" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+</body>
+
+</html>
